@@ -108,19 +108,22 @@
   }
 
   function simpan() {
-    const nama = document.getElementById("nama").value;
+  const nama = document.getElementById("nama").value.trim();
 
-    if (!nama) {
-      showToast("Isi dulu namanya!");
-      return;
-    }
-
-    // simulasi simpan
-    console.log("Data:", nama);
-
-    showToast("Tersimpan: " + nama);
-    playSound(); // 🔊 langsung bunyi
+  if (!nama) {
+    showToast("Isi dulu namanya!");
+    return;
   }
+
+  // tampilkan status awal
+  showToast("Menyimpan...");
+
+  // ⏳ delay 1 detik
+  setTimeout(() => {
+    showToast("Tersimpan: " + nama);
+    playSound(); // 🔊 bunyi barengan toast
+  }, 1000);
+    }
 </script>
 
 </body>
